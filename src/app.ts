@@ -1,10 +1,12 @@
 import express, { type NextFunction, type Request, type Response } from "express";
+import invites from "./routes/invites";
 import teams from "./routes/teams";
 
 export const app = express();
 
 app.use(express.json());
 app.use(teams);
+app.use(invites);
 
 app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   console.error(err);
